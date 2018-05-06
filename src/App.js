@@ -1,14 +1,49 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import GeoCoder from 'react-google-geocoder'
+
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <GeoCoder apiKey="AIzaSyCqJeH1bp062RgnAHmlrxVa-Y_dq1PFU6g" showFormTitle={true}/>
-      </div>
-    );
-  }
+    render() {
+        const apiKey = "AIzaSyCtjPHjqXV5TqB_WFIUnk4gpjbmCldNrEU"
+        const outerDivStyle = {
+            float: "left",
+            padding: "10px",
+            margin: "10px",
+            height: "300px",
+            backgroundColor: "azure",
+        }
+        const innerDivStyle = {
+            border: "1px dashed black",
+            padding: "5px",
+            margin: "5px",
+        }
+
+        return (
+            <div className="App">
+
+                <div style={outerDivStyle}>
+                    <h3>Default</h3>
+                    <div style={innerDivStyle}>
+                        <GeoCoder apiKey={apiKey}/>
+                    </div>
+                </div>
+
+                <div style={outerDivStyle}>
+                    <h3>No Title</h3>
+                    <div style={innerDivStyle}>
+                        <GeoCoder apiKey={apiKey} formTitle={false}/>
+                    </div>
+                </div>
+
+                <div style={outerDivStyle}>
+                    <h3>Custom Label</h3>
+                    <div style={innerDivStyle}>
+                        <GeoCoder fieldLabel={"Custom Label"}/>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }
 
 export default App;
