@@ -21,6 +21,12 @@ class App extends Component {
         return (
             <div className="App">
                 <h1>GeoCoder Examples</h1>
+                <p>
+                    <a target="_blank" href="https://github.com/mikebski/react-google-geocoder">Source on github</a>
+                </p>
+                <p>
+                    <a target="_blank" href="https://www.npmjs.com/package/react-google-geocoder">NPM JS Package</a>
+                </p>
                 <div style={outerDivStyle}>
                     <h3>Default</h3>
                     <pre>
