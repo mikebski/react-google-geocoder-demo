@@ -20,9 +20,12 @@ class App extends Component {
 
         return (
             <div className="App">
-
+                <h1>GeoCoder Examples</h1>
                 <div style={outerDivStyle}>
                     <h3>Default</h3>
+                    <pre>
+                        {'<GeoCoder apiKey={apiKey}/>'}
+                    </pre>
                     <div style={innerDivStyle}>
                         <GeoCoder apiKey={apiKey}/>
                     </div>
@@ -30,6 +33,9 @@ class App extends Component {
 
                 <div style={outerDivStyle}>
                     <h3>No Title</h3>
+                    <pre>
+                        {'<GeoCoder apiKey={apiKey} formTitle={false}/>'}
+                    </pre>
                     <div style={innerDivStyle}>
                         <GeoCoder apiKey={apiKey} formTitle={false}/>
                     </div>
@@ -37,8 +43,11 @@ class App extends Component {
 
                 <div style={outerDivStyle}>
                     <h3>Custom Label</h3>
+                    <pre>
+                        {'<GeoCoder fieldLabel={"Custom Label"}/>'}
+                    </pre>
                     <div style={innerDivStyle}>
-                        <GeoCoder fieldLabel={"Custom Label"}/>
+                        <GeoCoder apiKey={apiKey} fieldLabel={"Custom Label"}/>
                     </div>
                 </div>
             </div>
