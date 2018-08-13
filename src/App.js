@@ -8,13 +8,20 @@ const customInput = ({searching, address, onChange}) => {
     return (
         <input disabled={searching}
                value={address}
-               onChange={(event) => onChange(event.target.value)}/>
+               onChange={(event) => onChange(event)}/>
+    )
+}
+
+const customSearchButton = ({searching, onClick}) => {
+    return (
+        <button type="button" disabled={searching} onClick={onClick}>
+            Custom Search
+        </button>
     )
 }
 
 class App extends Component {
     render() {
-        const apiKey = "AIzaSyCqJeH1bp062RgnAHmlrxVa-Y_dq1PFU6g"
         const outerDivStyle = {
             padding: "10px",
             margin: "10px",
@@ -41,13 +48,13 @@ class App extends Component {
                 </p>
                 <div style={outerDivStyle}>
                     <h3>Default</h3>
-                    <pre>
+                    <pre>`
                     <PrismCode className="language-javascript">
-                        {'<GeoCoder apiKey={apiKey}/>'}
+                        {'<GeoCoder />'}
                     </PrismCode>
                     </pre>
                     <div style={innerDivStyle}>
-                        <GeoCoder apiKey={apiKey}/>
+                        <GeoCoder />
                     </div>
                 </div>
                 <div style={outerDivStyle}>
@@ -59,18 +66,18 @@ const customInput = ({searching, address, onChange}) => {
     return (
         <input disabled={searching}
                value={address}
-               onChange={(event) => onChange(event.target.value)}/>
+               onChange={(event) => onChange(event)}/>
     )
 }
 
 
-<GeoCoder apiKey={apiKey} input={customInput}/>
+<GeoCoder  input={customInput}/>
                         `}
 
                     </PrismCode>
                     </pre>
                     <div style={innerDivStyle}>
-                        <GeoCoder apiKey={apiKey}
+                        <GeoCoder 
                                   input={customInput}
                         />
                     </div>
@@ -79,11 +86,11 @@ const customInput = ({searching, address, onChange}) => {
                     <h3>No Title</h3>
                     <pre>
                         <PrismCode className="language-javascript">
-                        {'<GeoCoder apiKey={apiKey} formTitle={false}/>'}
+                        {'<GeoCoder  formTitle={false}/>'}
                         </PrismCode>
                     </pre>
                     <div style={innerDivStyle}>
-                        <GeoCoder apiKey={apiKey} formTitle={false}/>
+                        <GeoCoder  formTitle={false}/>
                     </div>
                 </div>
 
@@ -95,13 +102,33 @@ const customInput = ({searching, address, onChange}) => {
                     </PrismCode>
                     </pre>
                     <div style={innerDivStyle}>
-                        <GeoCoder apiKey={apiKey} fieldLabel={"Custom Label"}/>
+                        <GeoCoder  fieldLabel={"Custom Label"}/>
                     </div>
                 </div>
 
+                <div style={outerDivStyle}>
+                    <h3>Custom Search Button</h3>
+                    <pre>
+                    <PrismCode className="language-javascript">
+                        {`
+const customSearchButton = ({searching, onClick}) => {
+    return (
+        <button type="button" disabled={searching} onClick={onClick}>
+            Custom Search
+        </button>
+    )
+}
+<GeoCoder  fieldLabel={"Custom Label"} searchButton={customSearchButton}/>
+                        `}
+                    </PrismCode>
+                    </pre>
+                    <div style={innerDivStyle}>
+                        <GeoCoder  fieldLabel={"Custom Label"} searchButton={customSearchButton}/>
+                    </div>
+                </div>
             </div>
-    );
+        );
     }
-    }
+}
 
-    export default App;
+export default App;
